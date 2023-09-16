@@ -4,7 +4,7 @@ import styles from "./header.module.css";
 import { Link } from "@builder.io/qwik-city";
 
 export default component$(() => {
-  const navbar = useSignal(false);
+  const navbar = useSignal(true);
   return (
     <header class={styles.header}>
       <div class={[styles.wrapper]}>
@@ -36,25 +36,26 @@ export default component$(() => {
             ]}
           ></span>
         </div>
-        {!navbar.value && (
-          <ul class={styles.listNavbar}>
-            <li>
-              <Link href="/">Home</Link>
-            </li>
-            <li>
-              <Link href="/about">About</Link>
-            </li>
-            <li>
-              <Link href="/contact">Contact</Link>
-            </li>
-            <li>
-              <Link href="/flower">Flower</Link>
-            </li>
-            <li>
-              <Link href="/todolist">Todolist</Link>
-            </li>
-          </ul>
-        )}
+        <ul
+          class={`${
+            styles.listNavbar
+          } transition-all duration-300 ease-linear ${
+            navbar.value ? "translate-x-[-100%]" : "translate-x-0"
+          }`}
+        >
+          <li>
+            <Link href="/">Home</Link>
+          </li>
+          <li>
+            <Link href="/about">About</Link>
+          </li>
+          <li>
+            <Link href="/contact">Contact</Link>
+          </li>
+          <li>
+            <Link href="/todolist">Todolist</Link>
+          </li>
+        </ul>
       </div>
     </header>
   );

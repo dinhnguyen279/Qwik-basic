@@ -7,13 +7,25 @@ import {
   z,
   Form,
 } from "@builder.io/qwik-city";
-import styles from "./todolist.module.css";
 
 interface ListItem {
   text: string;
 }
 
-export const list: ListItem[] = [];
+export const list: ListItem[] = [
+  {
+    text: "hello",
+  },
+  {
+    text: "Các",
+  },
+  {
+    text: "Bạn",
+  },
+  {
+    text: "Nhó",
+  },
+];
 
 export const useListLoader = routeLoader$(() => {
   return list;
@@ -38,36 +50,44 @@ export default component$(() => {
   return (
     <>
       <div class="container">
-        <h1>
-          <span class="text-red-400">TODO</span> List
+        <h1 class="text-white">
+          <span class="text-red-500">TODO</span> List
         </h1>
       </div>
 
-      <div role="presentation" class="ellipsis"></div>
-
       <div class="container">
         {list.value.length === 0 ? (
-          <span class={styles.empty}>No items found</span>
+          <span class="">No items found</span>
         ) : (
-          <ul class={styles.list}>
+          <ul class="flex flex-col justify-center items-center gap-y-4 my-4">
             {list.value.map((item, index) => (
-              <li key={`items-${index}`}>{item.text}</li>
+              <li
+                key={`items-${index}`}
+                class="rounded-xl px-4 py-2 md:w-1/2 w-full bg-white text-black"
+              >
+                {index}: {item.text}
+              </li>
             ))}
           </ul>
         )}
       </div>
 
-      <div class="container container-center">
+      <div class="container">
         <Form action={action} spaReset>
-          <input type="text" name="text" required class={styles.input} />{" "}
-          <button type="submit" class="button-dark">
+          <input
+            placeholder="Hello World"
+            type="text"
+            name="text"
+            required
+            class="py-2 px-4 outline-none rounded-xl"
+          />
+          <button
+            type="submit"
+            class="m-2 py-2 px-4 bg-white rounded-xl text-black hover:bg-gray-500 hover:text-white transition-all duration-300 ease-linear"
+          >
             Add item
           </button>
         </Form>
-
-        <p class={styles.hint}>
-          PS: This little app works even when JavaScript is disabled.
-        </p>
       </div>
     </>
   );
