@@ -28,7 +28,7 @@ export const useAddToListAction = routeAction$(
   },
   zod$({
     text: z.string().trim().min(1),
-  }),
+  })
 );
 
 export default component$(() => {
@@ -37,15 +37,15 @@ export default component$(() => {
 
   return (
     <>
-      <div class="container container-center">
+      <div class="container">
         <h1>
-          <span class="highlight">TODO</span> List
+          <span class="text-red-400">TODO</span> List
         </h1>
       </div>
 
       <div role="presentation" class="ellipsis"></div>
 
-      <div class="container container-center">
+      <div class="container">
         {list.value.length === 0 ? (
           <span class={styles.empty}>No items found</span>
         ) : (

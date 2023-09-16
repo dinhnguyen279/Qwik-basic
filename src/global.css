@@ -1,11 +1,3 @@
-/**
- * WHAT IS THIS FILE?
- *
- * Globally applied styles. No matter which components are in the page or matching route,
- * the styles in here will be applied to the Document, without any sort of CSS scoping.
- *
- */
-
 :root {
   --qwik-dark-blue: #006ce9;
   --qwik-light-blue: #18b6f6;
@@ -16,65 +8,46 @@
   --qwik-dark-text: #ffffff;
 }
 
-html {
-  line-height: 1;
-  -webkit-text-size-adjust: 100%;
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  tab-size: 4;
-  font-family:
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    "Helvetica Neue",
-    Arial,
-    "Noto Sans",
-    sans-serif,
-    "Apple Color Emoji",
-    "Segoe UI Emoji",
-    "Segoe UI Symbol",
-    "Noto Color Emoji";
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
-  padding: 0;
-  margin: 0;
-  line-height: inherit;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  background: var(--qwik-dark-background);
 }
 
-/**
- * WHAT IS THIS FILE?
- *
- * Globally applied styles. No matter which components are in the page or matching route,
- * the styles in here will be applied to the Document, without any sort of CSS scoping.
- *
- */
-html {
-  -webkit-text-size-adjust: 100%;
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  tab-size: 4;
-  font-family:
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    "Helvetica Neue",
-    Arial,
-    "Noto Sans",
-    sans-serif,
-    "Apple Color Emoji",
-    "Segoe UI Emoji",
-    "Segoe UI Symbol",
-    "Noto Color Emoji";
+.container {
+  width: 1280px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-body {
-  padding: 0;
-  line-height: inherit;
+button {
+  border-radius: 12px;
+  padding: 10px 20px;
+  background: var(--qwik-dark-purple);
+  color: var(--qwik-dark-text);
+}
+
+button:hover {
+  background: var(--qwik-light-purple);
+}
+
+@media only screen and (max-width: 320px) {
+  .container {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 20px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
 }

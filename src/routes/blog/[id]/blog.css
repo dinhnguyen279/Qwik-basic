@@ -1,0 +1,12 @@
+.blogs-detail {
+  margin: 0 20px;
+  padding: 10px 20px;
+  font-size: 32px;
+}
+
+.blog-item__detail {
+  background: var(--qwik-light-blue);
+  color: var(--qwik-dark-text);
+  padding: 10px 20px;
+  border-radius: 12px;
+}
