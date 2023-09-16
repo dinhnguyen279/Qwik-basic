@@ -40,7 +40,7 @@ export default component$(() => {
           class={`${
             styles.listNavbar
           } transition-all duration-300 ease-linear ${
-            navbar.value ? "translate-x-[-100%]" : "translate-x-0"
+            navbar.value ? "translate-x-0 hidden" : "translate-x-[-100%] block"
           }`}
         >
           <li>
